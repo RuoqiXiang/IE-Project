@@ -1,0 +1,802 @@
+<html>
+
+<head>
+    <title>Visualization</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="logo">
+                    <img src="logo.jpg">
+                </div>
+                <ul class="main-nav">
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">VISUALIZATION</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="hero">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <h1>Unintentionsl drug-included deaths</h1>
+                <div class="button">
+                    <a href="#forscroll" class="vis">Watch visualization</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div id="forscroll" class="firstvs">
+        <br><br>
+        <h2>Rate of deaths due to Accidental Poisoning (1979-2016)</h2>
+        <h4>According to AIHW (Australian Institute of Health and Welfare), the death rate from accidental poisoning had been climbing since 1979.</h4>
+    </div>
+
+    <div class="linechart1">
+        <br><br>
+        <select id="mySelect">
+            <option value="https://public.tableau.com/views/Book1_15684728298860/Sheet1?:embed=y&:toolbar=no&:display_count=no&:showVizHome=no&:showShareOptions=false" frameborder="0" scrolling="no" width="600" height="600">Age From 25-29</option>
+            <option value="https://public.tableau.com/views/Book2_15684719146850/Sheet1?:showVizHome=no&amp;:embed=true&amp;:showShareOptions=false">Age From 30-34</option>
+            <option value="https://public.tableau.com/views/Book3_15684720306890/Sheet1?:showVizHome=no&amp;:embed=true&amp;:showShareOptions=false">Age From 35-39</option>
+            <option value="https://public.tableau.com/views/Book4_15684724040000/Sheet1?:showVizHome=no&amp;:embed=true&amp;:showShareOptions=false">Age From 40-44</option>
+        </select>
+        <div>
+            <iframe id="myGraph" src="https://public.tableau.com/views/Book1_15684728298860/Sheet1?:showVizHome=no&amp;:embed=true&amp;:showShareOptions=false" frameborder="0" scrolling="no" width="600" height="600"></iframe>
+        </div>
+        <script src="https://arthritix.com/Content/js/all.js"></script>
+        <script src="https://arthritix.com/Content/js/all.js"></script>
+        <script src="https://arthritix.com/Content/js/custom.js"></script>
+        <script src="https://arthritix.com/Content/js/portfolio.js"></script>
+        <script src="https://arthritix.com/Content/js/jquery.ba-cond.min.js"></script>
+        <script src="https://arthritix.com/Content/js/hoverdir.js"></script>
+        <script src="/Content/js/tippy.all.min.js"></script>
+        <script src="https://arthritix.com/Scripts/jquery-ui-1.12.1.js"></script>
+        <script src="https://arthritix.com/Content/js/tooltipster.bundle.min.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script>
+            tippy('.btn-a')
+
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                // SELECT MENU
+                $("#mySelect").change(function() {
+                    var value = $(this).val();
+                    var $myGraph = $('#myGraph');
+                    //IFRAME TAG
+
+                    $myGraph.attr('src', value);
+
+                })
+            });
+
+        </script>
+    </div>
+
+
+
+    <div class="newstate">
+        <br><br>
+        <h4>From 2001-2017, Unintentially accidentaly poisoning have been caused a lo tof people died, which surpassed the car crashes become the main reason of premature death</h4>
+    </div>
+
+    <div class="linevisualize">
+        <div id="lineContainer" style="height: 370px; width: 100%;"></div>
+        <script>
+            var chart = new CanvasJS.Chart("lineContainer", {
+                theme: "dark2",
+                title: {
+                    text: "Number of drug induced deaths in AU compared to other causes of death 2001-2017"
+                },
+                axisX: {
+                    valueFormatString: "YYYY"
+                },
+                axisY2: {
+                    title: "Number Of Deaths"
+                },
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    cursor: "pointer",
+                    verticalAlign: "top",
+                    horizontalAlign: "center",
+                    dockInsidePlotArea: true,
+                },
+                data: [{
+                        type: "line",
+                        xValueFormatString: "YYYY",
+                        axisYType: "secondary",
+                        name: "Unintentional drug-induced deaths",
+                        showInLegend: true,
+                        markerSize: 0,
+                        dataPoints: [{
+                                x: new Date(2001, 0),
+                                y: 981
+                            },
+                            {
+                                x: new Date(2002, 0),
+                                y: 903
+                            },
+                            {
+                                x: new Date(2003, 0),
+                                y: 901
+                            },
+                            {
+                                x: new Date(2004, 0),
+                                y: 968
+                            },
+                            {
+                                x: new Date(2005, 0),
+                                y: 983
+                            },
+                            {
+                                x: new Date(2006, 0),
+                                y: 952
+                            },
+                            {
+                                x: new Date(2007, 0),
+                                y: 1041
+                            },
+                            {
+                                x: new Date(2008, 0),
+                                y: 1171
+                            },
+                            {
+                                x: new Date(2009, 0),
+                                y: 1281
+                            },
+                            {
+                                x: new Date(2010, 0),
+                                y: 1325
+                            },
+                            {
+                                x: new Date(2011, 0),
+                                y: 1319
+                            },
+                            {
+                                x: new Date(2012, 0),
+                                y: 1237
+                            },
+                            {
+                                x: new Date(2013, 0),
+                                y: 1276
+                            },
+                            {
+                                x: new Date(2014, 0),
+                                y: 1513
+                            },
+                            {
+                                x: new Date(2015, 0),
+                                y: 1612
+                            },
+                            {
+                                x: new Date(2016, 0),
+                                y: 1728
+                            },
+                            {
+                                x: new Date(2017, 0),
+                                y: 1612
+                            },
+                        ]
+                    },
+                    {
+                        type: "line",
+                        xValueFormatString: "YYYY",
+                        axisYType: "secondary",
+                        name: "Car crashes",
+                        showInLegend: true,
+                        markerSize: 0,
+                        dataPoints: [{
+                                x: new Date(2001, 0),
+                                y: 1047
+                            },
+                            {
+                                x: new Date(2002, 0),
+                                y: 1032
+                            },
+                            {
+                                x: new Date(2003, 0),
+                                y: 997
+                            },
+                            {
+                                x: new Date(2004, 0),
+                                y: 835
+                            },
+                            {
+                                x: new Date(2005, 0),
+                                y: 881
+                            },
+                            {
+                                x: new Date(2006, 0),
+                                y: 894
+                            },
+                            {
+                                x: new Date(2007, 0),
+                                y: 858
+                            },
+                            {
+                                x: new Date(2008, 0),
+                                y: 829
+                            },
+                            {
+                                x: new Date(2009, 0),
+                                y: 853
+                            },
+                            {
+                                x: new Date(2010, 0),
+                                y: 840
+                            },
+                            {
+                                x: new Date(2011, 0),
+                                y: 793
+                            },
+                            {
+                                x: new Date(2012, 0),
+                                y: 788
+                            },
+                            {
+                                x: new Date(2013, 0),
+                                y: 726
+                            },
+                            {
+                                x: new Date(2014, 0),
+                                y: 718
+                            },
+                            {
+                                x: new Date(2015, 0),
+                                y: 762
+                            },
+                            {
+                                x: new Date(2016, 0),
+                                y: 770
+                            },
+                            {
+                                x: new Date(2017, 0),
+                                y: 725
+                            },
+
+                        ]
+                    },
+
+                    {
+                        type: "line",
+                        xValueFormatString: "YYYY",
+                        axisYType: "secondary",
+                        name: "Road traffic",
+                        showInLegend: true,
+                        markerSize: 0,
+                        dataPoints: [{
+                                x: new Date(2001, 0),
+                                y: 1802
+                            },
+                            {
+                                x: new Date(2002, 0),
+                                y: 1745
+                            },
+                            {
+                                x: new Date(2003, 0),
+                                y: 1639
+                            },
+                            {
+                                x: new Date(2004, 0),
+                                y: 1530
+                            },
+                            {
+                                x: new Date(2005, 0),
+                                y: 1508
+                            },
+                            {
+                                x: new Date(2006, 0),
+                                y: 1635
+                            },
+                            {
+                                x: new Date(2007, 0),
+                                y: 1561
+                            },
+                            {
+                                x: new Date(2008, 0),
+                                y: 1491
+                            },
+                            {
+                                x: new Date(2009, 0),
+                                y: 1529
+                            },
+                            {
+                                x: new Date(2010, 0),
+                                y: 1468
+                            },
+                            {
+                                x: new Date(2011, 0),
+                                y: 1360
+                            },
+                            {
+                                x: new Date(2012, 0),
+                                y: 1355
+                            },
+                            {
+                                x: new Date(2013, 0),
+                                y: 1282
+                            },
+                            {
+                                x: new Date(2014, 0),
+                                y: 1280
+                            },
+                            {
+                                x: new Date(2015, 0),
+                                y: 1289
+                            },
+                            {
+                                x: new Date(2016, 0),
+                                y: 1342
+                            },
+                            {
+                                x: new Date(2017, 0),
+                                y: 1246
+                            },
+                        ]
+                    },
+
+                ]
+            });
+            chart.render();
+
+        </script>
+    </div>
+
+
+
+
+    <div class="barVisualize">
+        <div id="barContainer" style="height: 370px; width: 100%;"></div>
+
+        <script>
+            var chart = new CanvasJS.Chart("barContainer", {
+                theme: "dark2",
+                animationEnabled: true,
+                title: {
+                    text: "Unintentional drug induced deaths by age group 2001-2017"
+                },
+
+                axisY: {
+                    title: "Number Of Deaths",
+                    titleFontColor: "#4F81BC",
+                    lineColor: "#4F81BC",
+                    labelFontColor: "#4F81BC",
+                    tickColor: "#4F81BC"
+                },
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    cursor: "pointer",
+                },
+                data: [{
+                        type: "column",
+                        name: "20-29 years old",
+                        legendText: "20-29 age group",
+                        showInLegend: true,
+                        dataPoints: [{
+                                label: "2001",
+                                y: 212
+                            },
+                            {
+                                label: "2005",
+                                y: 160
+                            },
+                            {
+                                label: "2008",
+                                y: 172
+                            },
+                            {
+                                label: "2013",
+                                y: 139
+                            },
+                            {
+                                label: "2015",
+                                y: 129
+                            },
+                            {
+                                label: "2017",
+                                y: 139
+                            }
+                        ]
+                    },
+                    {
+                        type: "column",
+                        name: "30-39 years old",
+                        legendText: "30-39 age group",
+                        showInLegend: true,
+                        dataPoints: [{
+                                label: "2001",
+                                y: 242
+                            },
+                            {
+                                label: "2005",
+                                y: 213
+                            },
+                            {
+                                label: "2008",
+                                y: 279
+                            },
+                            {
+                                label: "2013",
+                                y: 303
+                            },
+                            {
+                                label: "2015",
+                                y: 393
+                            },
+                            {
+                                label: "2017",
+                                y: 368
+                            }
+                        ]
+                    },
+
+                    {
+                        type: "column",
+                        name: "40-49 years old",
+                        legendText: "40-49 age group",
+                        showInLegend: true,
+                        dataPoints: [{
+                                label: "2001",
+                                y: 192
+                            },
+                            {
+                                label: "2005",
+                                y: 188
+                            },
+                            {
+                                label: "2008",
+                                y: 238
+                            },
+                            {
+                                label: "2013",
+                                y: 330
+                            },
+                            {
+                                label: "2015",
+                                y: 452
+                            },
+                            {
+                                label: "2017",
+                                y: 450
+                            }
+                        ]
+                    },
+
+                ]
+            });
+            chart.render();
+
+        </script>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="medicine.jpg" alt="Avatar" style="width:300px;height:300px;">
+                <div class="innerText">Show Graphs</div>
+            </div>
+
+            <div class="flip-card-back">
+
+
+                <div id="pie1Container" style="height: 370px; width: 100%;"></div>
+                <script>
+                    var chart = new CanvasJS.Chart("pie1Container", {
+                        theme: "dark2",
+                        animationEnabled: true,
+                        exportEnabled: true,
+                        title: {
+                            text: "Unintentional drug induced deaths by drug type in 2017"
+                        },
+                        data: [{
+                            type: "pie",
+                            startAngle: 240,
+                            indexLabel: "{label} {y}",
+                            dataPoints: [{
+                                    y: 417,
+                                    label: "Stimulants"
+                                },
+                                {
+                                    y: 43,
+                                    label: "Cocaine"
+                                },
+                                {
+                                    y: 583,
+                                    label: "Benzodiazepines"
+                                },
+                                {
+                                    y: 904,
+                                    label: "Opioids"
+                                },
+                                {
+                                    y: 252,
+                                    label: "Cannabinoids"
+                                },
+                                {
+                                    y: 275,
+                                    label: "Alcohol"
+                                },
+                                {
+                                    y: 67,
+                                    label: "Anti-convulsants"
+                                },
+                                {
+                                    y: 192,
+                                    label: "Anti-psychotics"
+                                }
+                            ]
+                        }]
+                    });
+                    chart.render();
+
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card-02">
+        <div class="flip-card-inner-02">
+            <div class="flip-card-front-02">
+                <img src="medicine.jpg" alt="Avatar" style="width:300px;height:300px;">
+            </div>
+            <div class="flip-card-back-02">
+                <select class="dropdown" id="dd">
+                    <option value="" selected="selected">Select a year</option>
+                    <option value="dps1">2011</option>
+                    <option value="dps2">2012</option>
+                    <option value="dps3">2013</option>
+                    <option value="dps4">2014</option>
+                    <option value="dps5">2015</option>
+                    <option value="dps6">2016</option>
+                    <option value="dps7">2017</option>
+                </select>
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                <script>
+                    var jsonData = {
+                        dps1: [{
+                                "y": 100,
+                                "name": "Heroin only"
+                            },
+                            {
+                                y: 69,
+                                "name": "Pharmaceutical opioids"
+                            },
+                            {
+                                y: 261,
+                                "name": "Opioids and benzodiazepines"
+                            },
+                            {
+                                y: 142,
+                                "name": "Opioids and alcohol"
+                            },
+                            {
+                                y: 52,
+                                "name": "Opioids+benzodiazepines+alcohol"
+                            },
+                            {
+                                y: 41,
+                                "name": "Opioids+other pharmaceuticals"
+                            }
+                        ],
+                        dps2: [{
+                                "y": 69,
+                                "name": "Heroin only"
+                            },
+                            {
+                                y: 59,
+                                "name": "Pharmaceutical opioids"
+                            },
+                            {
+                                y: 296,
+                                "name": "Opioids and benzodiazepines"
+                            },
+                            {
+                                y: 120,
+                                "name": "Opioids and alcohol"
+                            },
+                            {
+                                y: 58,
+                                "name": "Opioids+benzodiazepines+alcohol"
+                            },
+                            {
+                                y: 22,
+                                "name": "Opioids+other pharmaceuticals"
+                            }
+                        ],
+                        dps3: [{
+                                "y": 96,
+                                "name": "Heroin only"
+                            },
+                            {
+                                y: 84,
+                                "name": "Pharmaceutical opioids"
+                            },
+                            {
+                                y: 295,
+                                "name": "Opioids and benzodiazepines"
+                            },
+                            {
+                                y: 113,
+                                "name": "Opioids and alcohol"
+                            },
+                            {
+                                y: 63,
+                                "name": "Opioids+benzodiazepines+alcohol"
+                            },
+                            {
+                                y: 19,
+                                "name": "Opioids+other pharmaceuticals"
+                            }
+                        ],
+
+                        dps4: [{
+                                "y": 88,
+                                "name": "Heroin only"
+                            },
+                            {
+                                y: 116,
+                                "name": "Pharmaceutical opioids"
+                            },
+                            {
+                                y: 401,
+                                "name": "Opioids and benzodiazepines"
+                            },
+                            {
+                                y: 151,
+                                "name": "Opioids and alcohol"
+                            },
+                            {
+                                y: 85,
+                                "name": "Opioids+benzodiazepines+alcohol"
+                            },
+                            {
+                                y: 50,
+                                "name": "Opioids+other pharmaceuticals"
+                            }
+                        ],
+
+                        dps5: [{
+                                "y": 104,
+                                "name": "Heroin only"
+                            },
+                            {
+                                y: 103,
+                                "name": "Pharmaceutical opioids"
+                            },
+                            {
+                                y: 405,
+                                "name": "Opioids and benzodiazepines"
+                            },
+                            {
+                                y: 148,
+                                "name": "Opioids and alcohol"
+                            },
+                            {
+                                y: 79,
+                                "name": "Opioids+benzodiazepines+alcohol"
+                            },
+                            {
+                                y: 97,
+                                "name": "Opioids+other pharmaceuticals"
+                            }
+                        ],
+
+                        dps6: [{
+                                "y": 122,
+                                "name": "Heroin only"
+                            },
+                            {
+                                y: 91,
+                                "name": "Pharmaceutical opioids"
+                            },
+                            {
+                                y: 480,
+                                "name": "Opioids and benzodiazepines"
+                            },
+                            {
+                                y: 136,
+                                "name": "Opioids and alcohol"
+                            },
+                            {
+                                y: 78,
+                                "name": "Opioids+benzodiazepines+alcohol"
+                            },
+                            {
+                                y: 203,
+                                "name": "Opioids+other pharmaceuticals"
+                            }
+                        ],
+
+                        dps7: [{
+                                "y": 75,
+                                "name": "Heroin only"
+                            },
+                            {
+                                y: 55,
+                                "name": "Pharmaceutical opioids"
+                            },
+                            {
+                                y: 497,
+                                "name": "Opioids and benzodiazepines"
+                            },
+                            {
+                                y: 142,
+                                "name": "Opioids and alcohol"
+                            },
+                            {
+                                y: 77,
+                                "name": "Opioids+benzodiazepines+alcohol"
+                            },
+                            {
+                                y: 212,
+                                "name": "Opioids+other pharmaceuticals"
+                            }
+                        ]
+
+
+                    }
+                    var dataPoints = [];
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        theme: "dark2",
+                        exportFileName: "Doughnut Chart",
+                        exportEnabled: true,
+                        animationEnabled: true,
+                        title: {
+                            text: "Unintentional drug combination induced deaths"
+                        },
+                        legend: {
+                            cursor: "pointer",
+
+                        },
+                        data: [{
+                            type: "doughnut",
+                            innerRadius: 90,
+                            toolTipContent: "<b>{name}</b>: {y}deaths (#percent%)",
+                            indexLabel: "{name} - #percent%",
+                            dataPoints: dataPoints
+
+                        }]
+                    });
+
+                    $(".dropdown").change(function() {
+                        chart.options.data[0].dataPoints = [];
+                        var e = document.getElementById("dd");
+                        var selected = e.options[e.selectedIndex].value;
+                        dps = jsonData[selected];
+                        for (var i in dps) {
+                            chart.options.data[0].dataPoints.push({
+                                name: dps[i].name,
+                                y: dps[i].y
+                            });
+                        }
+                        chart.render();
+                    });
+
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
